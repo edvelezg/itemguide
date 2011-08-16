@@ -1,3 +1,4 @@
+# This class contains the information of the item
 class Item
   @@filepath = nil
   

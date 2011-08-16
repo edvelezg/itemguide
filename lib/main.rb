@@ -19,7 +19,7 @@ class Main
       #  what needs to be done?
          # do action
      # repeat until user quits
-     conclusion
+     conclusion 
   end
   
   def introduction
