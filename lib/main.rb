@@ -3,7 +3,7 @@ require "Item"
 class Main
   def initialize(path=nil)
     Item.filepath = path
-    if Item.file_exists?
+    if Item.file_usable?
       puts "Found item file."
     elsif Item.create_file
       puts "Created item file."
