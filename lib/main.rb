@@ -15,12 +15,32 @@ class Main
   
   def launch!
     introduction
-    # action loop
-      #  what needs to be done?
-         # do action
-     # repeat until user quits
-     conclusion 
+    result = nil
+    until result == :quit
+      print "> "
+      usr_response = gets.chomp
+
+      #  do action
+      result = do_action(usr_response)
+    end
+    conclusion 
   end
+  
+  def do_action(action)    
+    case action
+    when 'list'
+      puts "Listing..."
+    when 'find'
+      puts "finding..."
+    when 'add'
+      puts "adding..."
+    when 'quit'
+      return :quit
+    else
+      puts "\nInvalid command.\n"
+    end    
+  end
+  
   
   def introduction
     puts "\n\n <<< Welcome to the item finder >>> \n\n"
