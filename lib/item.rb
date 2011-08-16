@@ -8,6 +8,11 @@ class Item
     
   def self.file_exists?
     #  return if file exists
+    if @@filepath.nil? && File.exists?(@@filepath)
+      return true
+    else
+      return false
+    end
   end
   
   
