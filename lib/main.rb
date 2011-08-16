@@ -19,12 +19,12 @@ class Main
       #  what needs to be done?
          # do action
      # repeat until user quits
-     conclusion   
+     conclusion
   end
   
   def introduction
     puts "\n\n <<< Welcome to the item finder >>> \n\n"
-    puts "\n\n <<< This is an interactive guide to help you find the item you want >>> \n\n"
+    puts "\n\n <<< This is an interactive program to help you find items >>> \n\n"
   end
   
   
