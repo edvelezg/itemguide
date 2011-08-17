@@ -36,16 +36,15 @@ class Main
     end
     return action    
   end
-  
-  
+    
   def do_action(action)    
     case action
     when 'list'
-      puts "Listing..."
+      list
     when 'find'
       puts "finding..."
     when 'add'
-      puts "adding..."
+      add
     when 'quit'
       return :quit
     else
@@ -59,10 +58,28 @@ class Main
     puts "\n\n <<< This is an interactive program to help you find items >>> \n\n"
   end
   
+  def list
+    puts "\nListings item\n\n".upcase
+    items = Item.saved_items
+    items.each do |item|
+      puts item.name + " | " + item.category + " | " + item.price
+    end
+  end
+  
+  
+  def add
+    puts "\nAdd an item\n\n".upcase
+    item = Item.fillform
+    
+    if item.save
+      puts "\nItem Added\n\n"
+    else
+      puts "\n Save Error: Item not added\n\n"
+    end
+  end
+  
   
   def conclusion
     puts "\n Bye \n\n\n"
   end
-  
-  
 end
