@@ -1,6 +1,8 @@
 require "Item"
 
 class Main
+  @@actions = ['list', 'find', 'add', 'quit']
+  
   def initialize(path=nil)
     Item.filepath = path
     if Item.file_usable?
@@ -17,14 +19,24 @@ class Main
     introduction
     result = nil
     until result == :quit
-      print "> "
-      usr_response = gets.chomp
-
-      #  do action
-      result = do_action(usr_response)
+      action = get_action
+      result = do_action(action)
     end
     conclusion 
   end
+  
+  def get_action
+    action = nil
+    #  Keep asking usr for input until valid action
+    until @@actions.include?(action)
+      puts "Actions: " + @@actions.join(", ") if action
+      print "> "
+      usr_response = gets.chomp
+      action = usr_response.downcase.strip
+    end
+    return action    
+  end
+  
   
   def do_action(action)    
     case action
